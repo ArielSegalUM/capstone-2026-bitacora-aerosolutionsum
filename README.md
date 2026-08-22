@@ -1,2 +1,2 @@
-# capstone-2026-bitacora-AeroSolutions2026
+# capstone-2026-bitacora-aerosolutionsum
 Monitoreo y gestión de calidad del aire en Lab881, Municipalidad de Providencia/Hub Providencia
