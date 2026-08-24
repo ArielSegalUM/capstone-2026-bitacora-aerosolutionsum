@@ -1,0 +1,38 @@
+CONTRATO DE EQUIPO
+  Como integrantes de este equipo, nos comprometemos a trabajar de manera colaborativa y responsable durante todo el semestre para resolver el Desafío 06.
+  Reconocemos que el éxito de este proyecto depende del esfuerzo conjunto, integrando nuestras distintas disciplinas (Ingeniería Civil Industrial, Electrónica e Informática)
+  para diseñar un sistema piloto viable y efectivo para el Lab881. En caso de que este proyecto tenga un potencial viable que exceda la duracion del semestre se realizará un reunión
+  para conversar una posible extensión de este contrato.
+
+MINUTA DE 1era REUNIÓN
+  Fecha: 24 de agosto de 2026
+  Participantes: Matias Opazo, Cristobal Parada, Felipe Pezoa, Ariel Segal
+
+FOTO DEL EQUIPO
+  (nota: Subiremos la foto de equipo en foto apartado de nuestro repositorio)
+
+NOMBRE DEL EQUIPO: AeroSolutionsUM
+
+VALORES DEL EQUIPO
++ Complementariedad: Integraremos de manera sinérgica los conocimientos de Ingeniería Civil Industrial, Electrónica e Informática, valorando el aporte técnico específico de cada 
+                    disciplina para el diseño integral del sistema.
+
++ Coordinación: Planificaremos estratégicamente las tareas y responsabilidades, estableciendo plazos definidos y métodos de seguimiento para garantizar el cumplimiento de los hitos del proyecto.
+
++ Comunicación: Mantendremos un flujo de información constante, transparente y formal entre todos los miembros, asegurando la correcta alineación de los objetivos y la resolución eficiente de problemas.
+
++ Confianza: Respaldaremos el criterio técnico y la capacidad de ejecución de cada integrante, fomentando un ambiente de respeto profesional y seguridad en el trabajo del otro.
+
++ Compromiso: Asumiremos con total responsabilidad el cumplimiento de los objetivos grupales, priorizando el éxito del proyecto y la entrega de una solución tecnológica de alta calidad para el Lab881.
+
+NORMAS
++ Uso de Bitácora: Todo cambio de diseño o decisión técnica se documentará en nuestro repositorio de GitHub.
+
++ Asistencia: Toda ausencia a reuniones debe ser informada y justificada con al menos 24 horas de anticipación.
+
++ Resolución de Conflictos: Ante desacuerdos técnicos, la primera instancia será el diálogo abierto entre todos.
+
+DEFINICIÓN DEL DESAFÍO
+  Desafío 06 | Sostenibilidad: Monitoreo y gestión de calidad del aire en Lab881.
+    La operación de la cortadora láser genera material particulado y compuestos orgánicos volátiles. El objetivo es implementar un sistema piloto de monitoreo continuo que mida estas variables
+    en tiempo real, despliegue la información en una pantalla, emita alertas tempranas y proporcione una propuesta técnica de ventilación basada en los datos obtenidos.
