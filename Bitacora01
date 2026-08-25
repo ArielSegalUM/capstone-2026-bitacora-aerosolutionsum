@@ -6,7 +6,7 @@ Reconocemos que el éxito de este proyecto depende del esfuerzo conjunto, integr
 para diseñar un sistema piloto viable y efectivo para el Lab881. En caso de que este proyecto tenga un potencial viable que exceda la duracion del semestre se realizará un reunión
 para conversar una posible extensión de este contrato.
 
-MINUTA DE 1era REUNIÓN
+## MINUTA DE 1era REUNIÓN
 
 Fecha entrega: 24 de agosto de 2026
 Participantes: Matias Opazo, Cristobal Parada, Felipe Pezoa, Ariel Segal
@@ -16,25 +16,25 @@ FOTO DEL EQUIPO
 
 NOMBRE DEL EQUIPO: AeroSolutionsUM
 
-VALORES DEL EQUIPO
+## VALORES DEL EQUIPO
 
 -Coordinación: Planificaremos estratégicamente las tareas y responsabilidades, estableciendo plazos definidos y seguimiento para garantizar el cumplimiento de los hitos del proyecto.
 -Comunicación: Mantendremos un flujo de información constante, transparente y formal entre todos los miembros, asegurando la correcta alineación de los objetivos y la resolución eficiente de problemas.
 -Compromiso: Asumiremos con total responsabilidad el cumplimiento de los objetivos grupales, priorizando el éxito del proyecto y la entrega de una solución tecnológica de alta calidad para el Lab881.
 
-NORMAS
+## NORMAS
 
 -Uso de la bitácora: Todo cambio de diseño o decisión técnica se documentará en nuestro repositorio de GitHub.
 -Asistencia: Toda ausencia a clases/reuniones de grupo debe ser informada con al menos 24 horas de anticipación.
 -Resolución de conflictos: Ante desacuerdos, la primera instancia será el diálogo abierto entre todos.
 
-DEFINICIÓN DEL DESAFÍO
+## DEFINICIÓN DEL DESAFÍO
 
 Desafío 06 | Sostenibilidad: Monitoreo y gestión de calidad del aire en Lab881.
   La operación de la cortadora láser genera material particulado y compuestos orgánicos volátiles. El objetivo es implementar un sistema piloto de monitoreo continuo que mida estas variables
   en tiempo real, despliegue la información en una pantalla, emita alertas tempranas y proporcione una propuesta técnica de ventilación basada en los datos obtenidos.
 
-DECLARACIÓN DE COMPROMISO SMART DE CADA INTEGRANTE
+## DECLARACIÓN DE COMPROMISO SMART DE CADA INTEGRANTE
 
 Ariel Segal: Yo, Ariel, en mi rol de Coordinador y crónica del equipo, me comprometo a gestionar la planificación general del proyecto y administrar el repositorio de GitHub, documentando 
 y subiendo las entradas de bitácora, minutas de reunión y evidencias técnicas dentro de las 48 horas previas a cada sesión de trabajo, asegurando una trazabilidad completa y el cumplimiento de las 
