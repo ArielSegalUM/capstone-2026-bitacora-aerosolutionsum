@@ -1,4 +1,4 @@
-# CONTRATO DE EQUIPO, AEROSOLUTIONSUM
+#CONTRATO DE EQUIPO, AEROSOLUTIONSUM
 
 Como integrantes de este equipo, nos comprometemos a trabajar de manera colaborativa y responsable durante todo el semestre para resolver el Desafío 06.
 
@@ -22,19 +22,19 @@ NOMBRE DEL EQUIPO: AeroSolutionsUM
 -Comunicación: Mantendremos un flujo de información constante, transparente y formal entre todos los miembros, asegurando la correcta alineación de los objetivos y la resolución eficiente de problemas.
 -Compromiso: Asumiremos con total responsabilidad el cumplimiento de los objetivos grupales, priorizando el éxito del proyecto y la entrega de una solución tecnológica de alta calidad para el Lab881.
 
-## NORMAS
+##NORMAS
 
 -Uso de la bitácora: Todo cambio de diseño o decisión técnica se documentará en nuestro repositorio de GitHub.
 -Asistencia: Toda ausencia a clases/reuniones de grupo debe ser informada con al menos 24 horas de anticipación.
 -Resolución de conflictos: Ante desacuerdos, la primera instancia será el diálogo abierto entre todos.
 
-## DEFINICIÓN DEL DESAFÍO
+##DEFINICIÓN DEL DESAFÍO
 
 Desafío 06 | Sostenibilidad: Monitoreo y gestión de calidad del aire en Lab881.
   La operación de la cortadora láser genera material particulado y compuestos orgánicos volátiles. El objetivo es implementar un sistema piloto de monitoreo continuo que mida estas variables
   en tiempo real, despliegue la información en una pantalla, emita alertas tempranas y proporcione una propuesta técnica de ventilación basada en los datos obtenidos.
 
-## DECLARACIÓN DE COMPROMISO SMART DE CADA INTEGRANTE
+##DECLARACIÓN DE COMPROMISO SMART DE CADA INTEGRANTE
 
 Matías Opazo: Yo, Matías, asumo el rol de Gestión de Recursos en la dinámica del equipo, comprometiéndome a desarrollar la propuesta técnica de mitigación y ventilación/extracción para el Lab881, 
 mediante el análisis de la normativa laboral de calidad del aire, el estudio de flujos operativos en el taller y la administración eficiente del presupuesto para la cotización y adquisición 
