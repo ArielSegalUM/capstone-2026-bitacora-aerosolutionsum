@@ -1,0 +1,179 @@
+// ==========================================
+// PARÁMETROS PRINCIPALES (en milímetros)
+// ==========================================
+largo = 180;       // 18 cm (Eje X: profundidad frente-atrás)
+ancho = 120;       // 12 cm (Eje Y: ancho izquierda-derecha)
+alto_total = 80;   // 8 cm  (Eje Z: altura total cerrado)
+
+bisel = 12;        // Chaflán en esquinas y bordes
+pared = 2.6;       // Grosor de pared
+tolerancia = 0.3;  // Holgura para encaje fácil
+
+// Proporciones cabeza vs mandíbula
+alto_mandibula = 28;
+alto_cabeza = alto_total - alto_mandibula;
+
+// Parámetros Ventilador 40x40x10 mm (parte trasera)
+fan_agujero = 37;
+fan_tornillos_dist = 32;
+fan_tornillo_d = 3.2;
+
+// Parámetros Ojos frontales
+ojo_diam_ext = 22;
+ojo_diam_int = 16;
+ojo_sep = 42;
+
+// Parámetros Soporte LCD 1602 (PCB estándar: 80x36 mm)
+lcd_pcb_largo = 80;       // Ancho en eje Y
+lcd_pcb_ancho = 36;       // Profundidad en eje X
+lcd_agujeros_y = 75;      // Distancia entre tornillos eje Y
+lcd_agujeros_x = 31;      // Distancia entre tornillos eje X
+lcd_borde = 2.5;          // Reborde contenedor
+
+$fn = 60;
+
+// ==========================================
+// RENDERIZADO: MANDÍBULA Y CABEZA SEPARADAS
+// ==========================================
+mandibula_inferior();
+
+translate([0, ancho + 25, 0])
+cabeza_superior();
+
+// ==========================================
+// MÓDULO 1: MANDÍBULA INFERIOR
+// ==========================================
+module mandibula_inferior() {
+    difference() {
+        union() {
+            cuerpo_biselado(largo, ancho, alto_mandibula, bisel_inf = bisel, bisel_sup = 0);
+            dientes(cantidad = 4, ancho_zona = ancho - bisel*2, alto_diente = 7, grosor = pared);
+            
+            // Pines de encaje macho traseros
+            for (y_pos = [pared + 10, ancho - pared - 18]) {
+                translate([pared + 4, y_pos, alto_mandibula])
+                    cube([8 - tolerancia*2, 8 - tolerancia*2, 6]);
+            }
+        }
+        
+        translate([pared, pared, pared])
+            cuerpo_biselado(largo - pared*2, ancho - pared*2, alto_mandibula + 10, bisel_inf = bisel*0.7, bisel_sup = 0);
+    }
+}
+
+// ==========================================
+// MÓDULO 2: CABEZA SUPERIOR + BASE LCD 1602
+// ==========================================
+module cabeza_superior() {
+    pos_x_base = largo - bisel - lcd_pcb_ancho - 4; // Cerca de la zona frontal/ojos
+    pos_y_base = (ancho - lcd_pcb_largo) / 2;
+
+    difference() {
+        union() {
+            // Cuerpo biselado superior
+            cuerpo_biselado(largo, ancho, alto_cabeza, bisel_inf = 0, bisel_sup = bisel);
+            
+            // Aros exteriores de los ojos
+            for (dy = [-ojo_sep/2, ojo_sep/2]) {
+                translate([largo - 1, ancho/2 + dy, alto_cabeza * 0.48])
+                    rotate([0, 90, 0])
+                        cylinder(h = 5, d = ojo_diam_ext);
+            }
+            
+            // BASE PARA DISPLAY LCD 1602 EN EL TECHO FRONTAL
+            translate([pos_x_base - lcd_borde, pos_y_base - lcd_borde, alto_cabeza - 0.5]) {
+                difference() {
+                    // Marco exterior de la bandeja
+                    cube([lcd_pcb_ancho + lcd_borde*2, lcd_pcb_largo + lcd_borde*2, 4.5]);
+                    // Hueco interior donde posa la placa del LCD
+                    translate([lcd_borde - 0.2, lcd_borde - 0.2, 2])
+                        cube([lcd_pcb_ancho + 0.4, lcd_pcb_largo + 0.4, 4]);
+                }
+                
+                // 4 postes de apoyo en las esquinas del LCD 1602
+                for (dx = [(lcd_pcb_ancho - lcd_agujeros_x)/2, (lcd_pcb_ancho + lcd_agujeros_x)/2],
+                     dy = [(lcd_pcb_largo - lcd_agujeros_y)/2, (lcd_pcb_largo + lcd_agujeros_y)/2]) {
+                    translate([lcd_borde + dx, lcd_borde + dy, 1.5])
+                        cylinder(h = 2.5, d = 5);
+                }
+            }
+        }
+        
+        // Vaciado interior de la cabeza
+        translate([pared, pared, -1])
+            cuerpo_biselado(largo - pared*2, ancho - pared*2, alto_cabeza - pared + 1, bisel_inf = 0, bisel_sup = bisel*0.7);
+            
+        // Recorte frontal inferior para dientes
+        translate([largo - pared - 2, bisel, -1])
+            cube([pared + 4, ancho - bisel*2, 8]);
+            
+        // Agujeros pasantes de los ojos
+        for (dy = [-ojo_sep/2, ojo_sep/2]) {
+            translate([largo - pared - 2, ancho/2 + dy, alto_cabeza * 0.48])
+                rotate([0, 90, 0])
+                    cylinder(h = pared + 10, d = ojo_diam_int);
+        }
+        
+        // Alojamiento hembra trasero para pines de mandíbula
+        for (y_pos = [pared + 10 - tolerancia, ancho - pared - 18 - tolerancia]) {
+            translate([pared + 4 - tolerancia, y_pos, -1])
+                cube([8, 8, 7.5]);
+        }
+        
+        // RANURA PASACABLES PARA EL LCD 1602 (atraviesa el techo hacia el interior)
+        translate([pos_x_base + 4, ancho/2 - 14, alto_cabeza - pared - 2])
+            cube([10, 28, pared + 6]);
+            
+        // Agujeros guía para tornillos M2.5 en los 4 postes del LCD
+        translate([pos_x_base, pos_y_base, alto_cabeza - 1]) {
+            for (dx = [(lcd_pcb_ancho - lcd_agujeros_x)/2, (lcd_pcb_ancho + lcd_agujeros_x)/2],
+                 dy = [(lcd_pcb_largo - lcd_agujeros_y)/2, (lcd_pcb_largo + lcd_agujeros_y)/2]) {
+                translate([dx, dy, 0])
+                    cylinder(h = 6, d = 2.3);
+            }
+        }
+        
+        // ORIFICIO TRASERO PARA VENTILADOR 40x40x10 mm
+        translate([-1, ancho/2, alto_cabeza/2])
+            rotate([0, 90, 0]) {
+                cylinder(h = pared + 3, d = fan_agujero);
+                for (dx = [-1, 1], dy = [-1, 1]) {
+                    translate([dx * (fan_tornillos_dist/2), dy * (fan_tornillos_dist/2), 0])
+                        cylinder(h = pared + 3, d = fan_tornillo_d);
+                }
+            }
+    }
+}
+
+// ==========================================
+// GEOMETRÍA AUXILIAR
+// ==========================================
+module cuerpo_biselado(lx, ly, lz, bisel_inf, bisel_sup) {
+    hull() {
+        translate([bisel_inf, bisel_inf, 0])
+            linear_extrude(0.1)
+                offset(delta = bisel_inf, chamfer = true)
+                    square([lx - bisel_inf*2, ly - bisel_inf*2]);
+                    
+        translate([0, 0, bisel_inf])
+            linear_extrude(max(0.1, lz - bisel_inf - bisel_sup))
+                offset(delta = bisel, chamfer = true)
+                    translate([bisel, bisel])
+                        square([lx - bisel*2, ly - bisel*2]);
+                        
+        translate([bisel_sup, bisel_sup, lz - 0.1])
+            linear_extrude(0.1)
+                offset(delta = bisel_sup, chamfer = true)
+                    square([lx - bisel_sup*2, ly - bisel_sup*2]);
+    }
+}
+
+module dientes(cantidad, ancho_zona, alto_diente, grosor) {
+    paso = ancho_zona / cantidad;
+    for (i = [0 : cantidad - 1]) {
+        translate([largo - grosor, bisel + i * paso, alto_mandibula])
+            rotate([90, 0, 90])
+                linear_extrude(grosor)
+                    polygon([[0, 0], [paso/2, alto_diente], [paso, 0]]);
+    }
+}
